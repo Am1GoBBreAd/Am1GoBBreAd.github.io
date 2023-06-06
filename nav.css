@@ -1,0 +1,504 @@
+/* Settings */
+$c_0: #000000;
+$c_1: #353540;
+
+/**/
+
+
+body {
+  background-color: #f9f002;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $c_1;
+}
+
+@font-face{
+    font-family: 'blender';
+    src: url(font/BlenderPro-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+*{
+    font-family: 'blender', sans-serif;
+}
+
+
+.l-container {
+  background-color: #f9f002;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  width: 100%;
+  max-width: 1900px;
+  padding: 30px;
+    height: 700px
+}
+
+@media screen and (max-width: 760px) {
+  .l-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.b-game-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 150%;
+  perspective: 1000px;
+}
+
+.b-game-card__cover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-size: cover;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  will-change: transform;
+  transform: skewX(.001deg);
+  transition: transform .35s ease-in-out;
+}
+
+.b-game-card__cover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(226deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 35%, rgba(255,255,255,0.2) 42%, rgba(255,255,255,0) 60%);
+  transform: translateY(-20%);
+  will-change: transform;
+  transition: transform .65s cubic-bezier(0.18, 0.9, 0.58, 1);
+}
+
+.b-game-card:hover .b-game-card__cover {
+  transform: rotateX(7deg) translateY(-6px);
+}
+
+.b-game-card:hover .b-game-card__cover::after {
+  transform: translateY(0%);
+}
+
+.b-game-card::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: rgba($c_0, 0.5);
+  box-shadow: 0 6px 12px 12px rgba($c_0, 0.4);
+  will-change: opacity;
+  transform-origin: top center;
+  transform: skewX(.001deg);
+  transition: transform .35s ease-in-out, opacity .5s ease-in-out;
+}
+
+.b-game-card:hover::before {
+  opacity: 0.6;
+  transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#contain {
+    height: 100px;
+    margin: auto;
+    wi
+}
+
+/*footer*/
+.l-footer--flat.l-footer {
+    border-top: 1px solid #bfb506;
+    margin-top: 0;
+}
+
+
+.l-footer {
+    background: #fcee0a;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.l-footer .l-content {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1182px;
+}
+
+.l-content {
+    margin: 0 auto;
+    max-width: 1134px;
+    padding: 0 15px;
+    position: relative;
+}
+
+.l-footer--flat.l-footer .l-content>div:first-child {
+    padding-top: 42px;
+}
+
+.l-footer .l-content>div:first-child {
+    order: 1;
+    padding-top: 80px;
+}
+.l-footer .l-content>div {
+    flex: 0 0 auto;
+}
+
+.l-footer__partners {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 62px;
+    margin-top: 18px;
+    order: 2;
+}
+.l-footer__partners-half {
+    flex: 1 0 100%;
+    max-width: 100%;
+    width: 50%;
+}
+.l-footer__partners-half--alienware {
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.l-footer__partners-half--alienware img {
+    max-width: 242px;
+}
+.l-footer__partners-half--nvidia {
+    justify-content: center;
+}
+.l-footer__partners-half--nvidia img {
+    max-width: 178px;
+}
+
+
+
+
+.l-footer__top-nav.wide--full {
+    flex-flow: row wrap;
+}
+
+.l-footer__top-nav {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0 auto 40px;
+    max-width: 980px;
+    padding: 0;
+    width: 100%;
+    font-family: 'blender';
+    font-size: 21px;
+}
+
+.l-footer__top-nav a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.l-footer__top-nav.wide li:nth-child(4) {
+    text-align: right;
+}
+
+.l-footer__top-nav.wide--full li {
+    margin: 0 auto 20px;
+}
+
+.l-footer__top-nav li {
+    overflow: hidden;
+}
+
+.l-footer__top-nav a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+.l-footer__top-nav a span {
+    color: #000;
+    font-family: 'Blender', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding-right: 40px;
+    position: relative;
+    text-decoration: none;
+}
+
+.l-footer__socials {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0 0 40px;
+    padding: 0 24px;
+    flex-flow: row wrap;
+}
+
+.l-footer__socials li {
+    margin-right: 30px;
+}
+
+.l-footer__top-nav-findus {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.l-footer__social-item .icon {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
+.l-footer__social-item .icon-youtube {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-youtube-cd7b4275.svg');
+}
+
+.l-footer__social-item .icon {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
+
+.l-footer__social-item .icon-facebook {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-facebook-f12b4736.svg');
+}
+
+.l-footer__social-item .icon-twitter {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-twitter-0bde3412.svg');
+}
+
+.l-footer__social-item .icon-forums {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-forums-ff67b624.svg');
+    width: 48px;
+}
+
+.l-footer__social-item .icon-discord {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-discord-c4bd9363.svg');
+    height: 27px;
+    width: 25px;
+}
+
+.l-footer__social-item .icon-instagram {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-instargam-580ed29b.svg');
+}
+
+.l-footer__social-item .icon-tumblr {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-tumblr-55feebce.svg');
+    width: 15px;
+}
+
+.l-footer__social-item .icon-twitch {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-twitch-ada6b616.svg');
+}
+
+
+
+.l-footer .l-content>div:nth-child(3) {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    order: 4;
+    width: 100%;
+}
+
+.l-footer__langs-bg {
+    background: rgba(0,0,0,.4);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 101;
+}
+
+.l-footer__langs {
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 102;
+}
+
+.l-footer__langs span {
+    background: url('https://www.cyberpunk.net/build/images/icon-arrow-select-920834b2.svg') no-repeat right 2px center;
+    padding-right: 20px;
+    position: relative;
+}
+
+.l-footer__langs .icon-world {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-world-d1c63476.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    height: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 22px;
+}
+
+.l-footer__langs>div {
+    overflow: hidden;
+}
+
+.l-footer__langs ul {
+    left: auto;
+    right: -15px;
+}
+
+.l-footer__langs ul {
+    background: #000;
+    border-radius: 5px;
+    bottom: 100%;
+    display: none;
+    left: -15px;
+    list-style: none;
+    margin: 0;
+    padding: 5px 15px;
+    position: absolute;
+    width: 120px;
+}
+
+.l-footer__langs li {
+    align-items: center;
+    display: flex;
+    padding: 10px 0;
+}
+
+.l-footer__langs a {
+    color: #fff;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+
+
+  .footer-logo-container{
+    transform: scale(1.6);
+    }
+    .foot-bottom-logo{
+        transform: scale(0.7);
+    }
+}   
+
+//header
+.header__topbar p {
+    max-width: 76vw;
+}
+
+.header__topbar{
+    align-items: center;
+    background-color:#00ffd2;
+    background-image: url('https://www.cyberpunk.net/build/images/edgerunners-speed-pattern-dee80c47.svg');
+    background-position: 0;
+    background-repeat: no-repeat;
+    color: #000;
+    display: flex;
+    font-size: 24px;
+    height: 35px;
+    justify-content: center;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 1;
+}
+
+.header__topbar-text{
+    -webkit-text-size-adjust: 100%;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: 'Blender';
+    font-weight: 300;
+    color: #000;
+    font-size: 24px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    word-break: break-word;
+    margin: 5px;
+    padding: 10px;
+    max-width: 100%;
+}
+
+.header__topbar strong {
+    font-family: 'Blender';
+    font-weight: 700;
+}
+
+
+#header-fixed{
+    top:0;
+    left: 0;
+    color: rgb(241, 241, 0);
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    padding:8px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 10;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 10px 3px rgb(53, 223, 223);
+}
+div.logo-container{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container #header-img{
+    width: auto;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#top{
+    padding-top: 90px;
+    
+}
+
+
