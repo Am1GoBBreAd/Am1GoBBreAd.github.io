@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="form%20style.css">
+        <title>2077's from</title>
+    </head>
+    <body>
+        <a href = "nav.html" class="cyberpunk2077" style="position: relative">menu</a>
+        <div class="container1">
+  <div class="grid">
+  <header class="header">
+    <h1 id="title" class="text-center">Cyberpunk 2077 Form</h1>
+    <p id="description" class="description text-center"> Thank you for the patience and contribution of making this game better</p>
+  </header>
+</div>
+</div>
+<div class="container">
+  <div class="grid">
+  <form id="survey-form">
+    <div class="form-group">
+      <label id="name-label" for="name">Name</label>
+      <input type="text" name="name" id="name" class="form-control" placeholder="Your name" required/>
+    </div>
+    <div class="form-group">
+      <label id="email-label" for="email">Email</label>
+      <input type="email" name="email" id="email" class="form-control" placeholder="Your email" required/> </div>
+    <div class="form-group">
+      <label id="number-label" for="number"
+        >Age</label
+      >
+      <input
+        type="number"
+        name="age"
+        id="number"
+        min="18"
+        max="99"
+        class="form-control"
+        placeholder="Age"
+      />
+    </div>
+      <div class="form-group">
+        <p>What is the bug related to?</p>
+        <select id="dropdown" name="bug" class="form-control" required>
+          <option disabled selected value>Select the bug</option>
+          <option value="graphics">Graphics</option>
+          <option value="gameplay">Gameplay</option>
+          <option value="character">Character</option>
+          <option value="world">World</option>
+          <option value="story">Story</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <p>Would you recommend Cyberpunk 2077 to a friend?</p>
+        <label>
+          <input name="user-recommend" value="definitely" type="radio" class="input-radio" checked/>Definitely</label>
+         <label>
+          <input name="user-recommend" value="maybe" type="radio" class="input-radio" checked/>Maybe</label>
+         <label>
+          <input name="user-recommend" value="never" type="radio" class="input-radio" checked/>Never</label>
+        <div class="form-group">
+          <p>What are the new features you want to be added in the upcoming patch notes</p>
+          <select id="most-like" name="mostlike" class="form-control" required>
+            <option disabled selected value>Select an option</option>
+            <option value="mission">New missions</option>
+            <option value="customization">More customization</option>
+            <option value="dlc">DLC</option>
+            <option value="interaction">More interaction</option>
+            <option value="car">Flying cars</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>What do you like most about the game</p>
+          <label><input name="prefer" value="story" type="checkbox" class="input-checkbox"/>Story</label>
+          <label><input name="prefer" value="design" type="checkbox" class="input-checkbox"/>Design</label>
+          <label><input name="prefer" value="interaction" type="checkbox" class="input-checkbox"/>Interaction</label>
+          <label><input name="prefer" value="ending" type="checkbox" class="input-checkbox"/>Different endings</label>
+        </div>
+        <div class="form-group">
+          <p>Report a bug or leave a suggestion<p>
+          <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter your bug/comment here..."></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="submit" class="submit-button">Submit</button>
+        </div>
+        </form>
+    </div>
+  </div>
+    </body>
+</html>

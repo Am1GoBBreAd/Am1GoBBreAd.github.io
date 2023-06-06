@@ -1,0 +1,1059 @@
+/*root selector: define variables*/
+:root {
+  --glitched-duration: 0.9s;
+  --glitched-long-duration: 3s;
+  --yellow-color: #f9f002;
+  --yellow-color-opacity: #f9f00242;
+  --orange-color: #ff9800;
+  --border-color: #8ae66e;
+  --red-color: #ff003c;
+  --blue-color: #136377;
+  --green-color: #446d44;
+  --purple-color: purple;
+  --neon-color: #39ff14;
+  --swiper-navigation-size: 44px;
+  --swiper-theme-color: #007aff;
+    
+  --cyberpunk-yellow: #f0e801;
+  --among-us-red: #c51110;
+  --fall-guys-pink: #fa40a3;
+}
+
+
+/*select all elements in the body*/
+body{
+    background-color:yellow; 
+}
+
+body * {
+  font-family: "Advent Pro", arial;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+@font-face{
+    font-family:blender;
+    src:url(font/BlenderPro-Bold.TTF);
+}
+
+#top{
+    padding-top: 20px;
+    
+}
+
+
+.header__topbar p {
+    max-width: 76vw;
+}
+
+.header__topbar{
+    align-items: center;
+    background-color:#00ffd2;
+    background-image: url('https://www.cyberpunk.net/build/images/edgerunners-speed-pattern-dee80c47.svg');
+    background-position: 0;
+    background-repeat: no-repeat;
+    color: #000;
+    display: flex;
+    font-size: 24px;
+    height: 35px;
+    justify-content: center;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 1;
+}
+
+.header__topbar-text{
+    -webkit-text-size-adjust: 100%;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font-family: 'Blender';
+    font-weight: 300;
+    color: #000;
+    font-size: 24px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    word-break: break-word;
+    margin: 5px;
+    padding: 10px;
+    max-width: 100%;
+}
+
+.header__topbar strong {
+    font-family: 'Blender';
+    font-weight: 700;
+}
+
+#media{
+    background-color: #000;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 15px 50px;
+    position: relative;
+}
+
+
+
+#media h1 {
+    color: #f8ef00;
+    font-family: 'Blender';
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 18px;
+  
+    position: relative;
+    text-transform: uppercase;
+}
+
+.l-main__section--news {
+    background-color: #000;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 15px 50px;
+    margin-top: 20px;
+    position: relative;
+    font-family: 'blender';
+}
+
+section{
+    display: block;
+}
+
+.l-news {
+    grid-gap: 23px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2,minmax(198px,auto));
+    list-style: none;
+    margin: 0;
+    padding: 0 44px;
+}
+
+.c-news--cyan {
+    align-items: flex-start;
+    background: #00f0ff;
+    border: 1px solid transparent;
+    color: #000;
+    flex-direction: column;
+}
+
+.c-news {
+    align-items: flex-end;
+    border: 1px solid #979797;
+    box-sizing: border-box;
+    color: black;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0 30px 30px;
+    position: relative;
+    text-decoration: none;
+}
+
+.c-news--cyan h3 {
+    color: white;
+}
+
+.c-news--cyan .c-news__title {
+    padding-top: 100px;
+}
+
+.c-news__meta {
+    position: absolute;
+    right: 24px;
+    top: 44px;
+}
+
+.c-news span {
+    display: inherit;
+    overflow: hidden;
+}
+
+.c-news__date, .c-news__more-button {
+    color: #cdcdcd;
+    display: block;
+    font-family: 'Blender';
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+news__more-button {
+    color: white;
+}
+
+.c-news--cyan .c-news__date, .c-news--cyan .c-news__more-button {
+    color: #00000f;
+}
+
+.c-news__more-button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: none;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+}
+.c-news__date, .c-news__more-button {
+    color: #cdcdcd;
+    display: block;
+    font-family:'blender';
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+button, input {
+    font-family: 'Blender';
+}
+
+.c-news__excerpt {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+    padding-left: 35px;
+}
+
+.c-news--cyan+.l-news__corner {
+    border-color: #000 transparent transparent;
+    border-style: solid;
+    border-width: 17px 17px 0 0;
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+.l-main__section--news-link {
+    display: block;
+    margin-top: 20px;
+    padding-right: 40px;
+    text-align: right;
+    width: 100%;
+}
+
+.l-main__section--news-link a {
+    color: #00f0ff;
+    position: relative;
+}
+
+.l-main__section--news h2 {
+    color: #f8ef00;
+    font-family: 'Blender';
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.l-news li:first-child {
+    grid-column: 1;
+    grid-row: 1/span 2;
+}
+
+.l-news li:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.l-news li:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.l-news li:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.l-news li:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+
+.c-news:after {
+    background: #cdcdcd;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 29px;
+    position: absolute;
+    top: 52px;
+    width: 53px;
+}
+
+
+.l-news li:hover {
+  background-color: #00f0ff;
+
+}
+
+.c-news h3 {
+    color: white;
+    font-family: 'Blender';
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    width: 100%;
+    word-break: break-word;
+}
+
+
+.l-main__section--news-link a {
+    color: #00f0ff;
+    position: relative;
+    font-family: 'blender';
+}
+
+
+.gallerynav {
+    background-color: black;
+    align-self: center;
+    display: flex;
+    margin: 0 auto;
+    max-height: 100px;
+    margin-top: -30px;
+    margin-bottom:0px;
+    position:relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+   
+}
+
+.gallerynav button{
+    border: 2px solid #cdcdcd;
+    box-sizing:border-box;
+    cursor: pointer;
+    font-family: 'Blender';
+    font-size: 14px;
+    font-weight: 700;
+    height: 55px;
+    letter-spacing: 2px;
+    line-height: normal;
+    outline: none;
+    padding: 0 16px;
+    position: relative;
+    text-transform: uppercase;
+    width: 253px;
+}
+
+button,select{
+    text-transform: none;
+}
+
+button,input{
+    overflow:visible;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    margin:0 auto;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+/*select all elements in the body*/
+body * {
+  font-family: 'blender';
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+
+#features{
+    background: black;
+}
+
+.features-inner-container{
+    background: url(https://www.blogenium.com/wp-content/uploads/2019/08/blogenium-cool-technologies-wallpapers-13.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.features-filter-container{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1)20%, rgba(0, 0, 0, 0.9)70%, rgba(0, 0, 0, 0.85)100%);
+    margin-top: 100px;
+}
+.features-filter-container::after{
+    content: '';
+    width: 100%;
+    height: 100px;
+    display: block;
+    background: linear-gradient(-180deg, rgba(0, 0, 0, 0.0)30%, rgba(0, 0, 0, 0.8)60%, rgb(0, 0, 0, 1)100%);
+    position: relative;
+}
+.features-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px;
+    margin-bottom: 60px;
+    padding: 20px;
+}
+
+.title-bg{
+    height: 200px;
+    background: url(https://i.ytimg.com/vi/UtLun2-jOQ8/maxresdefault.jpg);
+    background-size: cover;
+    background-position: center;
+    display: block;
+    position: relative;
+    border-top-right-radius: 10px;
+}
+.title-bg::before{
+    content: '';
+    display: block;
+    position: absolute;    
+    width: 30px;
+    border-left: 30px solid black;
+    border-bottom: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 30px solid black;
+}
+.title-h1-feat{
+    color: white;
+    font-size: 3em;
+    font-family: monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 5px;
+    text-align: right;
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: auto;
+    width: 80%;
+}
+.title-h1-feat span{
+    text-shadow: none;
+    color: yellow;
+}
+.title-h1-feat::before{
+    content: '';
+    display: block;
+    margin-left: auto;
+    margin-bottom: 10px;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid yellow;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 10px;
+    width: 50%;
+    filter: drop-shadow(0 8px 15px rgba(0, 213, 167, 0.4));
+}
+
+.title-h1-feat::after{
+    content: '';
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+    width: 60%;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgb(234, 238, 9);
+    border-top: 15px solid transparent;
+    filter: drop-shadow(0 -10px 30px rgba(0, 213, 167, 0.4));
+}
+.bg2{
+    background: url(https://cdn.mos.cms.futurecdn.net/nETpEt2BQ6eWwPndueR6hS.jpg);
+    background-size: cover;
+    border-top-left-radius: 10px;
+    position: relative;
+}
+.bg2::before{
+    content: '';
+    display: block;
+    position: absolute;  
+    right: 0;
+    width: 30px;
+    border-left: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-right: 30px solid black;
+    border-top: 30px solid black;
+}
+.title2{
+    margin-left: 0;
+    text-align: left;
+}
+.title2::before{
+    content: '';
+    display: block;
+    margin-left: 0;
+    margin-bottom: 10px;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid yellow;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 10px;
+    width: 50%;
+    filter: drop-shadow(0 8px 15px rgba(234, 238, 9, 0.4));
+}
+.title2::after{
+    content: '';
+    display: block;
+    margin-left: 0;
+    width: 60%;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgb(234, 238, 9);
+    border-top: 15px solid transparent;
+    filter: drop-shadow(0 -8px 15px rgba(0, 213, 167, 0.4));
+    
+}
+
+.features-card .description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.3em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(231, 228, 228);
+    letter-spacing: 4px;
+}
+
+.d1{
+    margin-left: 20px;
+    width: 40%;
+}
+.d2{
+    text-align: right;
+    width: 55%;
+    margin-right: 20px;
+}
+.t2{
+    flex-direction: row-reverse;
+    margin-top: 20px;
+}
+
+.features-bottom-container{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: rgb(234, 238, 9);
+    height: 100px;
+    width: 80%;
+    position: relative;
+}
+.features-bottom-container::before{
+    content: '';
+    display: block;
+    border-left: 25px solid transparent;
+    border-right: 25px solid black;
+    border-bottom: 25px solid transparent;
+    border-top: 25px solid black;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.features-bottom-container::after{
+    content:'';
+    display: block;
+    position: absolute;
+    border-left: 25px solid black;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid black;
+    border-top: 25px solid transparent;
+    bottom: 0;
+    left: 0;
+}
+.bottom-feat-h1{
+    font-family: 'blender';
+    font-size: 2em;
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: 4px;
+    padding: 20px;
+    border-top: 2px solid rgba(46, 46, 44, 0.397);
+    border-bottom: 2px solid rgba(46, 46, 44, 0.397);
+    width: 80%;
+    position: relative;
+}
+.bottom-feat-h1::before{
+    content: '17-09-2077';
+    display: block;
+    position: absolute;
+    top: -7px;
+    right: 20px;
+    font-size: 0.3em;
+    font-weight: 550;
+    color: rgba(46, 46, 44, 0.397);
+    background: rgb(234, 238, 9);
+}
+.bottom-feat-h1::after{
+    content: 'V.1.43-Bm';
+    display: block;
+    position: absolute;
+    bottom: -7px;
+    left: 20px;
+    font-size: 0.3em;
+    font-weight: 550;
+    color: rgba(46, 46, 44, 0.397);
+    background: rgb(234, 238, 9);
+}
+.feat-blinky{
+    display: inline-flex;
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 4px;
+    left:-20px;
+    background: rgba(20, 20, 20, 0.897);
+    animation: Xblinky 1.01s ease forwards infinite;
+}
+@keyframes Xblinky{
+    from{
+        background: rgba(20, 20, 20, 0.897);
+        opacity: 1;
+    }
+    to{
+        background: rgba(20, 20, 20, 0.897);
+        opacity: 0;
+    }
+}
+
+#header-fixed{
+    top:0;
+    left: 0;
+    color: rgb(241, 241, 0);
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    padding:8px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 10;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 10px 3px rgb(53, 223, 223);
+}
+div.logo-container{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container #header-img{
+    width: auto;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header{
+    position: relative;
+    width: 100%;
+}
+
+
+#gallery{
+    background: black;
+    display: flex;
+    flex-direction: column;
+}
+.gal-title{
+    display: block;
+    margin: auto;
+    position: relative;  
+    margin-bottom: 30px;
+}
+.gal-title::after{
+    content:'';
+    display: block;
+    width: 120%;
+    border-left: 10px solid rgb(221, 221, 19);
+    border-right: 10px solid rgb(221, 221, 19);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid rgb(221, 221, 19);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    bottom:-20px;
+    left: -27.5px;
+    filter: drop-shadow(0 -8px 8px rgba(221, 221, 19, 0.3));
+}
+.gal-title h1{
+    font-size: 3em;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgb(221, 221, 19);
+}
+#gallery .gallery-inner-container{
+    background: url(https://i11b.3djuegos.com/juegos/8873/cyberpunk/fotos/maestras/cyberpunk-4893076.jpg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.gallery-filter-container{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1)40%, rgba(0, 0, 0, 0.97)80%, rgba(0, 0, 0, 0.95)100%);
+}
+.gallery-filter-container::after{
+    content: '';
+    width: 100%;
+    height: 100px;
+    display: block;
+    background: linear-gradient(-180deg, rgba(0, 0, 0, 0.0)30%, rgba(0, 0, 0, 0.8)60%, rgb(0, 0, 0, 1)100%);
+}
+.walk-video-container{
+    box-sizing: border-box;
+    padding-top: 50px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+.screenshots-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 97%;
+    box-sizing: border-box;
+    margin-top: 50px;
+    padding-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.screenshots-inner-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.img-container{
+    width: 100%;
+    height: 200px;
+    margin: 5px;
+    transition: width 0.5s ease-out;
+}
+.img-container img{
+    width: 90%;
+    height: 100%;
+}
+.img-container:hover{
+    width:140%;
+    height: 120%;
+    transition: width 1s ease, height 0.1s ease-in;
+    box-shadow: -2px 2px 4px 6px black, 2px -2px 4px 6px black;
+    z-index: 4;
+    cursor: pointer;
+    border: 1 solid black;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/*footer*/
+.l-footer--flat.l-footer {
+    border-top: 1px solid #bfb506;
+    margin-top: 0;
+}
+
+
+.l-footer {
+    background: #fcee0a;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.l-footer .l-content {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1182px;
+}
+
+.l-content {
+    margin: 0 auto;
+    max-width: 1134px;
+    padding: 0 15px;
+    position: relative;
+}
+
+.l-footer--flat.l-footer .l-content>div:first-child {
+    padding-top: 42px;
+}
+
+.l-footer .l-content>div:first-child {
+    order: 1;
+    padding-top: 80px;
+}
+.l-footer .l-content>div {
+    flex: 0 0 auto;
+}
+
+.l-footer__partners {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 62px;
+    margin-top: 18px;
+    order: 2;
+}
+.l-footer__partners-half {
+    flex: 1 0 100%;
+    max-width: 100%;
+    width: 50%;
+}
+.l-footer__partners-half--alienware {
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.l-footer__partners-half--alienware img {
+    max-width: 242px;
+}
+.l-footer__partners-half--nvidia {
+    justify-content: center;
+}
+.l-footer__partners-half--nvidia img {
+    max-width: 178px;
+}
+
+
+
+
+.l-footer__top-nav.wide--full {
+    flex-flow: row wrap;
+}
+
+.l-footer__top-nav {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0 auto 40px;
+    max-width: 980px;
+    padding: 0;
+    width: 100%;
+    font-family: 'blender';
+    font-size: 21px;
+}
+
+.l-footer__top-nav a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.l-footer__top-nav.wide li:nth-child(4) {
+    text-align: right;
+}
+
+.l-footer__top-nav.wide--full li {
+    margin: 0 auto 20px;
+}
+
+.l-footer__top-nav li {
+    overflow: hidden;
+}
+
+.l-footer__top-nav a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+.l-footer__top-nav a span {
+    color: #000;
+    font-family: BlenderProBold,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding-right: 40px;
+    position: relative;
+    text-decoration: none;
+}
+
+.l-footer__socials {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0 0 40px;
+    padding: 0 24px;
+    flex-flow: row wrap;
+}
+
+.l-footer__socials li {
+    margin-right: 30px;
+}
+
+.l-footer__top-nav-findus {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.l-footer__social-item .icon {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
+.l-footer__social-item .icon-youtube {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-youtube-cd7b4275.svg');
+}
+
+.l-footer__social-item .icon {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
+
+.l-footer__social-item .icon-facebook {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-facebook-f12b4736.svg');
+}
+
+.l-footer__social-item .icon-twitter {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-twitter-0bde3412.svg');
+}
+
+.l-footer__social-item .icon-forums {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-forums-ff67b624.svg');
+    width: 48px;
+}
+
+.l-footer__social-item .icon-discord {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-discord-c4bd9363.svg');
+    height: 27px;
+    width: 25px;
+}
+
+.l-footer__social-item .icon-instagram {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-instargam-580ed29b.svg');
+}
+
+.l-footer__social-item .icon-tumblr {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-tumblr-55feebce.svg');
+    width: 15px;
+}
+
+.l-footer__social-item .icon-twitch {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-social-twitch-ada6b616.svg');
+}
+
+
+
+.l-footer .l-content>div:nth-child(3) {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    order: 4;
+    width: 100%;
+}
+
+.l-footer__langs-bg {
+    background: rgba(0,0,0,.4);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 101;
+}
+
+.l-footer__langs {
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 102;
+}
+
+.l-footer__langs span {
+    background: url('https://www.cyberpunk.net/build/images/icon-arrow-select-920834b2.svg') no-repeat right 2px center;
+    padding-right: 20px;
+    position: relative;
+}
+
+.l-footer__langs .icon-world {
+    background-image: url('https://www.cyberpunk.net/build/images/icon-world-d1c63476.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    height: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 22px;
+}
+
+.l-footer__langs>div {
+    overflow: hidden;
+}
+
+.l-footer__langs ul {
+    left: auto;
+    right: -15px;
+}
+
+.l-footer__langs ul {
+    background: #000;
+    border-radius: 5px;
+    bottom: 100%;
+    display: none;
+    left: -15px;
+    list-style: none;
+    margin: 0;
+    padding: 5px 15px;
+    position: absolute;
+    width: 120px;
+}
+
+.l-footer__langs li {
+    align-items: center;
+    display: flex;
+    padding: 10px 0;
+}
+
+.l-footer__langs a {
+    color: #fff;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+  .footer-logo-container{
+    transform: scale(1.6);
+    }
+    .foot-bottom-logo{
+        transform: scale(0.7);
+    }
+}   
+
