@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luis Lyu | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #0f1117;
+      --bg2:      #161a24;
+      --stone:    #2a2f3e;
+      --border:   #313849;
+      --green:    #5aab4a;
+      --diamond:  #44c8d8;
+      --gold:     #f0b429;
+      --text:     #e8eaf0;
+      --muted:    #8a91a8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 64px;
+      background: rgba(15,17,23,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+      color: var(--green); display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    section {
+      position: relative; z-index: 1;
+      padding: 120px 5vw;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 12px;
+    }
+    .section-label::before {
+      content: ''; display: inline-block; width: 8px; height: 8px;
+      background: var(--green); box-shadow: 3px 3px 0 rgba(90,171,74,0.3);
+    }
+    h1, h2, h3 { font-family: 'Syne', sans-serif; }
+
+    #about {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; padding-top: 140px;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--diamond); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::after {
+      content: ''; flex: 1; max-width: 80px; height: 1px;
+      background: var(--diamond); opacity: 0.4;
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 800;
+      line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 24px;
+    }
+    .hero-title .accent { color: var(--green); }
+    .hero-title .dim { color: var(--muted); }
+    .hero-sub {
+      font-size: 1.08rem; color: var(--muted);
+      max-width: 540px; line-height: 1.75; margin-bottom: 40px;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+    .tag {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em;
+      padding: 6px 14px; border: 1px solid var(--border);
+      background: var(--bg2); color: var(--muted);
+      box-shadow: 2px 2px 0 var(--border); transition: all 0.18s;
+    }
+    .tag:hover { border-color: var(--green); color: var(--green); box-shadow: 2px 2px 0 var(--green); }
+
+    .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+    .stat-block {
+      display: flex; flex-direction: column;
+      border-left: 2px solid var(--border); padding-left: 16px;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 1.6rem; color: var(--green); line-height: 1;
+    }
+    .stat-lbl { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+    .block-deco {
+      position: absolute; right: 5vw; top: 50%; transform: translateY(-50%);
+      display: grid; grid-template-columns: repeat(4, 40px); grid-template-rows: repeat(4, 40px);
+      gap: 4px; opacity: 0.2; pointer-events: none;
+    }
+    .block-deco div { background: var(--stone); border: 1px solid var(--border); }
+    .block-deco div:nth-child(1)  { background: var(--green); }
+    .block-deco div:nth-child(6)  { background: var(--green); opacity: 0.6; }
+    .block-deco div:nth-child(9)  { background: var(--diamond); opacity: 0.7; }
+    .block-deco div:nth-child(14) { background: var(--green); opacity: 0.5; }
+    .block-deco div:nth-child(16) { background: var(--diamond); opacity: 0.4; }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+      margin: 0 5vw;
+    }
+
+    .section-heading {
+      font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800;
+      letter-spacing: -0.02em; margin-bottom: 56px; line-height: 1.1;
+    }
+    .section-heading .hl { color: var(--green); }
+
+    .exp-tabs {
+      display: flex; margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-tab {
+      padding: 10px 24px; font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+      cursor: pointer; border: none; border-bottom: 2px solid transparent;
+      margin-bottom: -1px; background: none; transition: all 0.2s;
+    }
+    .exp-tab:hover { color: var(--text); }
+    .exp-tab.active { color: var(--green); border-bottom-color: var(--green); }
+
+    .exp-pane { display: none; }
+    .exp-pane.active { display: block; }
+
+    .exp-item {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 24px 40px; padding: 32px 0; border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-meta { padding-top: 4px; }
+    .exp-date { font-size: 0.75rem; font-weight: 500; color: var(--muted); margin-bottom: 6px; }
+    .exp-org { font-size: 0.78rem; color: var(--diamond); font-weight: 600; }
+    .exp-role {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem;
+      font-weight: 700; margin-bottom: 10px; color: var(--text);
+    }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      font-size: 0.9rem; color: var(--muted);
+      padding: 4px 0 4px 20px; position: relative; line-height: 1.65;
+    }
+    .exp-bullets li::before {
+      content: '▪'; position: absolute; left: 0;
+      color: var(--green); font-size: 0.7rem; top: 7px;
+    }
+    .exp-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .exp-skill {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 3px 10px;
+      border: 1px solid var(--border); color: var(--muted);
+    }
+
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+    }
+    .project-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      padding: 32px 28px; box-shadow: 4px 4px 0 var(--border);
+      transition: all 0.22s; position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--green);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .project-card:hover {
+      box-shadow: 6px 6px 0 var(--green);
+      border-color: var(--green); transform: translate(-2px, -2px);
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+    .project-card.alt:hover { box-shadow: 6px 6px 0 var(--diamond); border-color: var(--diamond); }
+    .project-card.alt::before { background: var(--diamond); }
+
+    .project-icon { font-size: 1.5rem; margin-bottom: 16px; display: block; }
+    .project-title {
+      font-family: 'Syne', sans-serif; font-size: 1.05rem;
+      font-weight: 700; margin-bottom: 10px;
+    }
+    .project-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.68; margin-bottom: 18px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-tag {
+      font-size: 0.67rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; padding: 3px 9px;
+      border: 1px solid var(--border); color: var(--muted);
+    }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; font-size: 0.78rem; font-weight: 600;
+      color: var(--diamond); text-decoration: none; transition: gap 0.2s;
+    }
+    .project-link:hover { gap: 10px; }
+
+    /* ── GALLERY CAROUSEL ─────────────────────────────── */
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .carousel-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      animation: carouselScroll 28s linear infinite;
+    }
+    .carousel-wrapper:hover .carousel-track {
+      animation-play-state: paused;
+    }
+    @keyframes carouselScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .carousel-slide {
+      position: relative;
+      width: 380px;
+      aspect-ratio: 16/9;
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 4px 4px 0 var(--border);
+      background: var(--bg2);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .carousel-wrapper:hover .carousel-slide:hover {
+      border-color: var(--green);
+      box-shadow: 4px 4px 0 var(--green);
+    }
+    .carousel-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      filter: brightness(0.82);
+      transition: filter 0.3s, transform 0.4s;
+    }
+    .carousel-wrapper:hover .carousel-slide:hover img {
+      filter: brightness(1);
+      transform: scale(1.04);
+    }
+    .carousel-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,17,23,0.8) 0%, transparent 55%);
+      display: flex; align-items: flex-end; padding: 14px 16px;
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .carousel-slide:hover .carousel-overlay { opacity: 1; }
+    .carousel-caption {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--text); letter-spacing: 0.04em;
+    }
+    .carousel-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+    }
+    .carousel-placeholder span { font-size: 2rem; opacity: 0.25; }
+    .carousel-placeholder p {
+      font-size: 0.68rem; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .gallery-hint {
+      margin-top: 20px;
+      font-size: 0.75rem; color: var(--muted);
+      text-align: center; letter-spacing: 0.04em;
+    }
+
+    /* ── OLD gallery-grid (kept for reference, unused) ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 4px 4px 0 var(--border);
+      cursor: pointer;
+      background: var(--bg2);
+      transition: all 0.22s;
+    }
+    .gallery-item:hover {
+      border-color: var(--green);
+      box-shadow: 4px 4px 0 var(--green);
+      transform: translate(-2px, -2px);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+      filter: brightness(0.85);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1);
+    }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,17,23,0.85) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.25s;
+      display: flex; align-items: flex-end; padding: 14px 16px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-caption {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--text); letter-spacing: 0.04em;
+      font-family: 'Syne', sans-serif;
+    }
+    /* placeholder block for items with no image yet */
+    .gallery-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      background: var(--bg2);
+    }
+    .gallery-placeholder span { font-size: 2rem; opacity: 0.3; }
+    .gallery-placeholder p {
+      font-size: 0.7rem; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    /* ── LIGHTBOX ─────────────────────────────────────── */
+    .lightbox {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(10,11,16,0.96);
+      align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 1000px; width: 100%;
+    }
+    .lightbox-inner img {
+      width: 100%; height: auto;
+      display: block;
+      border: 1px solid var(--border);
+      box-shadow: 8px 8px 0 var(--green);
+    }
+    .lightbox-caption {
+      margin-top: 14px;
+      font-size: 0.82rem; color: var(--muted);
+      text-align: center; letter-spacing: 0.04em;
+    }
+    .lightbox-close {
+      position: absolute; top: -16px; right: -16px;
+      width: 36px; height: 36px;
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--muted); font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.18s;
+      box-shadow: 2px 2px 0 var(--border);
+    }
+    .lightbox-close:hover {
+      color: var(--text); border-color: var(--green);
+      box-shadow: 2px 2px 0 var(--green);
+    }
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px;
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--muted); font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.18s;
+      box-shadow: 2px 2px 0 var(--border);
+    }
+    .lightbox-nav:hover { color: var(--green); border-color: var(--green); box-shadow: 2px 2px 0 var(--green); }
+    .lightbox-prev { right: calc(100% + 12px); }
+    .lightbox-next { left: calc(100% + 12px); }
+
+    /* ── CONTACT ──────────────────────────────────────── */
+    #contact { text-align: center; padding-bottom: 160px; }
+    .contact-block { max-width: 600px; margin: 0 auto; }
+    .contact-big {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px;
+    }
+    .contact-sub { font-size: 1rem; color: var(--muted); margin-bottom: 40px; }
+    .contact-links {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 16px; margin-bottom: 40px;
+    }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px; font-family: 'Syne', sans-serif;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      border: 1px solid var(--border); background: var(--bg2);
+      color: var(--text); box-shadow: 4px 4px 0 var(--border); transition: all 0.2s;
+    }
+    .contact-btn:hover {
+      border-color: var(--green); color: var(--green);
+      box-shadow: 4px 4px 0 var(--green); transform: translate(-2px, -2px);
+    }
+
+    footer {
+      text-align: center; padding: 24px 5vw;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em;
+      position: relative; z-index: 1;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { opacity: 0; animation: fadeUp 0.6s forwards; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.22s; }
+    .delay-3 { animation-delay: 0.36s; }
+    .delay-4 { animation-delay: 0.5s; }
+
+    @media (max-width: 900px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .lightbox-prev { right: auto; left: 0; top: auto; bottom: -52px; transform: none; }
+      .lightbox-next { left: auto; right: 0; top: auto; bottom: -52px; transform: none; }
+    }
+    @media (max-width: 700px) {
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .block-deco { display: none; }
+      .nav-links { display: none; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">&#9935;&#65039; <span>Luis.lyu</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <div class="hero-eyebrow fade-in">Creative Mode: Analytics</div>
+    <h1 class="hero-title fade-in delay-1">
+      Hi, I'm&nbsp;<span class="accent">Zhirui Lyu.</span><br/>
+    </h1>
+    <p class="hero-sub fade-in delay-2">
+      3B <strong>Math / Financial Analysis &amp; Risk Management</strong> student at Waterloo.
+      I turn data into insight &mdash; Bloomberg terminals, Python dashboards, ETF analytics.
+      Currently exploring <strong>Python automation</strong> and <strong>AI applications</strong> in market research.
+    </p>
+    <div class="tags fade-in delay-3">
+      <span class="tag">Bloomberg Terminal</span>
+      <span class="tag">Python</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">VBA</span>
+      <span class="tag">ETF Analysis</span>
+      <span class="tag">Financial Mathematics</span>
+      <span class="tag">Salesforce</span>
+      <span class="tag">Matplotlib &middot; Plotly</span>
+    </div>
+    <div class="hero-stats fade-in delay-4">
+      <div class="stat-block">
+        <span class="stat-num">n &gt; 9</span>
+        <span class="stat-lbl">Cats &#128049;</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-num">t &gt; 12</span>
+        <span class="stat-lbl">Minecraft veteran &#9876;&#65039;</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-num">&infin;</span>
+        <span class="stat-lbl">Bugs debugged in life &#128027;</span>
+      </div>
+    </div>
+    <div class="block-deco" aria-hidden="true">
+      <div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="experience">
+    <p class="section-label">Experience</p>
+    <h2 class="section-heading">Where I've <span class="hl">mined my skills</span></h2>
+
+    <div class="exp-tabs">
+      <button class="exp-tab active" id="tab-work" onclick="switchTab('work')">Work</button>
+      <button class="exp-tab" id="tab-school" onclick="switchTab('school')">Education</button>
+    </div>
+
+    <div class="exp-pane active" id="pane-work">
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Sep 2025 &mdash; Apr 2026</div>
+          <div class="exp-org">Global X Investments &middot; Toronto</div>
+        </div>
+        <div>
+          <div class="exp-role">Business Development Associate</div>
+          <ul class="exp-bullets">
+            <li>Engineered an automated ETF comparison table using <strong>VBA + Bloomberg (BQL/BDH/BDP)</strong> covering 101+ ETFs with dynamic return horizons (YTD, Since Inception).</li>
+            <li>Executed a <strong>Tax-Loss Harvesting</strong> selection process via Bloomberg EQS &amp; XCRR &mdash; identifying optimal replacement picks based on historical returns and correlation.</li>
+            <li>Built a <strong>Python-based AUM tracker</strong> visualizing daily volume and institutional block trades (&ge;$250k) for newly launched ETFs.</li>
+            <li>Expanded Salesforce database by <strong>825+ contacts</strong>, achieving a 73.66% team follow-up rate through bilingual outbound calls and email outreach.</li>
+            <li>Aggregated Q1&ndash;Q3 advisor holdings via XLOOKUP, Power Query, and pivot tables into an <strong>interactive Power BI dashboard</strong> for growth &amp; ticker trend analysis.</li>
+          </ul>
+          <div class="exp-skills">
+            <span class="exp-skill">Bloomberg</span>
+            <span class="exp-skill">VBA</span>
+            <span class="exp-skill">Python</span>
+            <span class="exp-skill">Power BI</span>
+            <span class="exp-skill">Salesforce</span>
+            <span class="exp-skill">Power Query</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-pane" id="pane-school">
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Sep 2023 &mdash; Apr 2028</div>
+          <div class="exp-org">University of Waterloo &middot; Waterloo</div>
+        </div>
+        <div>
+          <div class="exp-role">BMath &middot; Financial Analysis &amp; Risk Management</div>
+          <ul class="exp-bullets">
+            <li>Major in <strong>Financial Analysis and Risk Management</strong> with a Risk Management specialization.</li>
+            <li>Minor in <strong>Statistics</strong>.</li>
+            <li>Solid foundation in financial math, actuarial science, accounting, and data visualization.</li>
+            <li>Completed StockTrak virtual trading simulation as a graduation deliverable &mdash; constructing diversified portfolios across stocks, ETFs, options, futures, and bonds.</li>
+          </ul>
+          <div class="exp-skills">
+            <span class="exp-skill">Quantitative &amp; Math</span>
+            <span class="exp-skill">Finance &amp; Accounting</span>
+            <span class="exp-skill">Tech &amp; System</span>
+            <span class="exp-skill">Business &amp; Economics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <h2 class="section-heading">Things I've <span class="hl">crafted</span></h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <span class="project-icon">&#128202;</span>
+        <div class="project-title">ETF AUM &amp; Block Trade Dashboard</div>
+        <p class="project-desc">Tracks 36 new launches + 50 core tickers. Python (Pandas, Matplotlib) for visualization; Excel VBA/TypeScript for institutional block trade detection (&ge;$250k). Real-time daily volume tracking.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">VBA</span>
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Matplotlib</span>
+        </div>
+        <a href="https://github.com/Am1GoBBreAd" class="project-link" target="_blank">View on GitHub &rarr;</a>
+      </div>
+
+      <div class="project-card alt">
+        <span class="project-icon">&#128200;</span>
+        <div class="project-title">StockTrak Virtual Trading Simulation</div>
+        <p class="project-desc">
+          Multi-milestone graduation deliverable.<br/>
+          Milestone 1: Diversified portfolio via bottom-up growth investing (13 trades across stocks, ETFs, options, futures, bonds).<br/>
+          Milestone 2: Asset-allocation style portfolio, all securities selected via Bloomberg EQS.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Bloomberg EQS</span>
+          <span class="project-tag">Portfolio Construction</span>
+          <span class="project-tag">Derivatives</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-icon">&#128269;</span>
+        <div class="project-title">Stock Picking Report</div>
+        <p class="project-desc">Academic project: designed a diversified portfolio using bottom-up analysis. Evaluated financial health indicators including P/E, ROE, and Quick Ratio to identify undervalued securities.</p>
+        <div class="project-tags">
+          <span class="project-tag">Fundamental Analysis</span>
+          <span class="project-tag">P/E &middot; ROE</span>
+          <span class="project-tag">Excel</span>
+        </div>
+      </div>
+
+      <div class="project-card alt">
+        <span class="project-icon">&#129302;</span>
+        <div class="project-title">AI &times; Market Research (In Progress)</div>
+        <p class="project-desc">Exploring Python automation and AI applications for market research workflows. Building scalable AI-driven financial data pipelines and interactive visualization dashboards.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Plotly</span>
+          <span class="project-tag">AI / LLM</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <p class="section-label">Gallery</p>
+    <h2 class="section-heading">12 Years of <span class="hl">building</span></h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- slides injected by JS -->
+      </div>
+    </div>
+    <p class="gallery-hint">&#9646; hover to pause</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact">
+    <div class="contact-block">
+      <p class="section-label" style="justify-content:center;">Get In Touch</p>
+      <h2 class="contact-big">Let's <span style="color:var(--green)">build</span> something.</h2>
+      <p class="contact-sub">Open to co-ops, collaborations, and conversations about fintech, quant research, or AI-driven finance tools.</p>
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#2e541b1a42575b6e5b594f5a4b5c424141004d4f" class="contact-btn">&#9993; <span class="__cf_email__" data-cfemail="bbc18e8fd7c2cefbceccdacfdec9d7d4d495d8da">[email&#160;protected]</span></a>
+        <a href="/cdn-cgi/l/email-protection#7f0d0a161d0d1a1e1b3f18121e1613511c1012" class="contact-btn">&#9993; <span class="__cf_email__" data-cfemail="5527203c3727303431153238343c397b363a38">[email&#160;protected]</span></a>
+        <a href="https://linkedin.com/in/zhirui-lyu-a0325030b" class="contact-btn" target="_blank">in LinkedIn</a>
+        <a href="https://github.com/Am1GoBBreAd" class="contact-btn" target="_blank">&#8997; GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Zhirui (Luis) Lyu &nbsp;&middot;&nbsp; Built with &#9935; &nbsp;&middot;&nbsp; Waterloo, ON
+  </footer>
+
+  <script>
+    /* ── TAB SWITCHING ── */
+    function switchTab(tab) {
+      document.querySelectorAll('.exp-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.exp-pane').forEach(function(p) { p.classList.remove('active'); });
+      document.getElementById('pane-' + tab).classList.add('active');
+      document.getElementById('tab-' + tab).classList.add('active');
+    }
+
+    /* ── GALLERY CAROUSEL ──
+       Add your screenshots here: set src to the filename (must be in same folder as index.html)
+       and give each a caption. Duplicated automatically for infinite scroll.
+    */
+    var galleryItems = [
+      { src: '2023-01-28 211613.png', caption: 'Farm 1' },
+      { src: '2023-01-28 211601.png', caption: 'House 1' },
+      { src: '2023-01-28 211610.png', caption: 'House 2' },
+      { src: '2023-01-28 211608.png', caption: 'Interior 1' },
+      { src: '2023-01-28 211604.png', caption: 'Interior 2' },
+    ];
+
+    var placeholderIcons = ['&#127966;','&#127970;','&#9968;','&#127757;','&#128167;','&#127768;'];
+
+    function buildSlide(item, idx) {
+      var slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      if (item.src) {
+        var img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.caption;
+        slide.appendChild(img);
+      } else {
+        var ph = document.createElement('div');
+        ph.className = 'carousel-placeholder';
+        ph.innerHTML = '<span>' + placeholderIcons[idx % placeholderIcons.length] + '</span><p>Add screenshot</p>';
+        slide.appendChild(ph);
+      }
+      var overlay = document.createElement('div');
+      overlay.className = 'carousel-overlay';
+      overlay.innerHTML = '<span class="carousel-caption">' + item.caption + '</span>';
+      slide.appendChild(overlay);
+      return slide;
+    }
+
+    var track = document.getElementById('carouselTrack');
+    // build twice for seamless infinite loop
+    galleryItems.forEach(function(item, i) { track.appendChild(buildSlide(item, i)); });
+    galleryItems.forEach(function(item, i) { track.appendChild(buildSlide(item, i)); });
+
+    /* ── SCROLL FADE-IN ── */
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card, .exp-item').forEach(function(el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s, transform 0.5s';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
